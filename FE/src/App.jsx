@@ -1,34 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import './index.css'; // Ensure Tailwind CSS is imported
+import { Navigate, Route, Routes } from 'react-router';
+import OnboardingPage from './pages/OnboardingPage';
+import SignUpPage from './pages/SignUpPage';
+import LoginPage from './pages/LoginPage';
+import HomePage from './pages/HomePage';
+import CallPage from './pages/CallPage';
+import ChatPage from './pages/ChatPage';
+import NotificationsPage from './pages/NotificationsPage';
+import { Toaster, toast } from 'react-hot-toast';
+import { useQuery } from '@tanstack/react-query';
+// import { axiosInstance } from './lib/axios';
+import PageLoader from './components/pageloader';
+// import { getAuthUser } from './lib/api';
+import useAuthUser from './hooks/useAuthUSer';
 
-function App() {
-  const [count, setCount] = useState(0)
+
+const App = () => {
+
+  // const {data: authData, isLoading, error} = useQuery({
+  //   queryKey:["authUser"],
+    
+  //   queryFn: getAuthUser,
+    
+  // retry:false});
+
+  const {isLoading, authUser} = useAuthUser();
+  const isAuthenticated = Boolean(authUser);
+  const isOnboarded = authUser?.isOnboarded;
+
+
+  // const authUser = authData?.user;
+  
+ if (isLoading) return <PageLoader />; // Show loader while fetching auth data
+  
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="h-screen " data-theme="night">
+
+        <Routes>
+          <Route path="/" element={ isAuthenticated && isOnboarded? <HomePage />: <Navigate to="/onboarding"/>} />
+          <Route path="/signup" element={!isAuthenticated ?<SignUpPage />: <Navigate to="/"/>} />
+          <Route path="/login" element={!isAuthenticated ?<LoginPage /> : <Navigate to="/"/>} />
+          <Route path="/onboarding" element={isAuthenticated ?( !isOnboarded? (<OnboardingPage />) :( <Navigate to="/"/>)) : (<Navigate to="/login"/>)} />
+          <Route path="/call" element={isAuthenticated ?<CallPage /> : <Navigate to="/login"/>} />
+          <Route path="/chat" element={isAuthenticated ?<ChatPage /> : <Navigate to="/login"/>} />
+          <Route path ="/notifications" element={isAuthenticated ?<NotificationsPage /> : <Navigate to="/login"/>}  />
+          <Route path="*" element={ <Navigate to="/" /> } />
+        </Routes>
+      <Toaster />
+    </div>
   )
 }
 
