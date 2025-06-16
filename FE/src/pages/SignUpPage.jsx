@@ -2,8 +2,9 @@ import React from 'react';
 import { ShipWheelIcon } from 'lucide-react';
 import { Link } from 'react-router';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { axiosInstance } from '../lib/axios';
-import { signup } from '../lib/api';
+// import { axiosInstance } from '../lib/axios';
+// import { signup } from '../lib/api';
+import useSignup from '../hooks/useSignup';
 
 const SignUpPage = () => {
   const [signupData, setSignupData] = React.useState({
@@ -12,20 +13,22 @@ const SignUpPage = () => {
     password: '',
   })
 
-  const queryClient = useQueryClient();
+  // const queryClient = useQueryClient();
 
-  const {mutate : signupMutation, isPending , error} = useMutation({
-    mutationFn: signup,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["authUser"] }),
-  });
+  // const {mutate : signupMutation, isPending , error} = useMutation({
+  //   mutationFn: signup,
+  //   onSuccess: () => queryClient.invalidateQueries({ queryKey: ["authUser"] }),
+  // });
+    const {error,isPending,SignupMutation}=useSignup();
+
 
   const handleSignup = (e) => {
     e.preventDefault();
-    signupMutation(signupData);
+    SignupMutation(signupData);
   };
 
   return (
-  <div className="h-screen flex flex-col items-center justify-center p-4 sm:p-6 md:p-8" data-theme="forest">
+  <div className="h-screen flex flex-col items-center justify-center p-4 sm:p-6 md:p-8" >
     <div className= "border border-primary/25 flex flex-col lg:flex-row w-full max-w-5xl mx-auto bg-base-100 rounded-xl shadow-lg overflow-hidden">
     {/*SignupFORM*/}
     <div className="w-full lg:w-1/2 p-6 sm:p-8 flex flex-col">
