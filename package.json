@@ -1,0 +1,13 @@
+{
+  "name": "streamify",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix BE && npm install --prefix FE && npm run build --prefix FE",
+    "start": "npm run start --prefix BE"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
