@@ -13,7 +13,7 @@ import { useQuery } from '@tanstack/react-query';
 // import { axiosInstance } from './lib/axios';
 import PageLoader from './components/PageLoader';
 // import { getAuthUser } from './lib/api';
-import useAuthUser from './hooks/useAuthUSer';
+import useAuthUser from './hooks/useAuthUser';
 import Layout from './components/Layout';
 import { useThemeStore } from './store/useThemeStore';
 

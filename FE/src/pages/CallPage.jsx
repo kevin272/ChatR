@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router"
 import { getStreamToken } from "../lib/api";
-import useAuthUser from "../hooks/useAuthUSer";
+import useAuthUser from "../hooks/useAuthUser";
 
 import {
   StreamVideo,

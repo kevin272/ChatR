@@ -1,4 +1,4 @@
-import useAuthUser from '../hooks/useAuthUSer'
+import useAuthUser from '../hooks/useAuthUser'
 import { Link, useLocation } from 'react-router';
 // import { useMutation, useQueryClient } from '@tanstack/react-query';
 // import { logout } from '../lib/api';
