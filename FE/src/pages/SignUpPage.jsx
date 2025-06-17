@@ -1,7 +1,7 @@
 import React from 'react';
 import { ShipWheelIcon } from 'lucide-react';
 import { Link } from 'react-router';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+// import { useMutation, useQueryClient } from '@tanstack/react-query';
 // import { axiosInstance } from '../lib/axios';
 // import { signup } from '../lib/api';
 import useSignup from '../hooks/useSignup';
@@ -37,7 +37,7 @@ const SignUpPage = () => {
     <div className="mb-4 flex items-center justify-start gap-2">
       <ShipWheelIcon className="size-9 text-primary" />
       <span className="text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider">
-        StreamR
+        ChatR
       </span>
     </div>
     <div className = "w-full">
@@ -48,7 +48,7 @@ const SignUpPage = () => {
               Create your account
             </h2>
             <p className="text-sm text-left text-gray-500 mb-6">
-              Join us to start your journey with StreamR!
+              Join us to start your journey with ChatR!
             </p>
           </div>
 
@@ -149,9 +149,9 @@ const SignUpPage = () => {
             <div className="text-center space-y-3 mt-6">
               <h2 className="text-xl font-semibold">Connect with people worldwide</h2>
               <p className="opacity-70 *:text-sm *:text-gray-600 ">
-                Join StreamR to share your thoughts, ideas, and experiences with a global community. 
+                Join ChatR to share your thoughts, ideas, and experiences with a global community. 
                 Whether you're looking to make new friends or connect with like-minded individuals, 
-                StreamR is the place for you.
+                ChatR is the place for you.
               </p>
             </div>
           </div>

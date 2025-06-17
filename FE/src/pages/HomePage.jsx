@@ -1,6 +1,8 @@
-import React from 'react'
+import { useQueryClient } from "@tanstack/react-query"
 
 const HomePage = () => {
+  const queryClient = useQueryClient();
+  
   return (
     <div>HomePage</div>
   )

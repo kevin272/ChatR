@@ -38,7 +38,7 @@ const LoginPage = () => {
     <div className="mb-4 flex items-center justify-start gap-2">
       <ShipWheelIcon className="size-9 text-primary" />
       <span className="text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider">
-        StreamR
+        ChatR
       </span>
     </div>
     <div className = "w-full">
@@ -49,7 +49,7 @@ const LoginPage = () => {
               Login to your account
             </h2>
             <p className="text-sm text-left text-gray-500 mb-6">
-              Continue your journey with StreamR!
+              Continue your journey with ChatR!
             </p>
           </div>
 
@@ -122,7 +122,7 @@ const LoginPage = () => {
             <div className="text-center space-y-3 mt-6">
               <h2 className="text-xl font-semibold">Connect with people worldwide</h2>
               <p className="opacity-70 *:text-sm *:text-gray-600 ">
-                Join StreamR to connect with a global community and share your thoughts by creating an account or logging in with your existing credentials. Once logged in, you can easily engage in discussions and make new friends.
+                Join ChatR to connect with a global community and share your thoughts by creating an account or logging in with your existing credentials. Once logged in, you can easily engage in discussions and make new friends.
               </p>
             </div>
           </div>

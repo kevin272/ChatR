@@ -14,6 +14,8 @@ import { useQuery } from '@tanstack/react-query';
 import PageLoader from './components/pageloader';
 // import { getAuthUser } from './lib/api';
 import useAuthUser from './hooks/useAuthUSer';
+import Layout from './components/Layout';
+import { useThemeStore } from './store/useThemeStore';
 
 
 const App = () => {
@@ -28,6 +30,7 @@ const App = () => {
   const {isLoading, authUser} = useAuthUser();
   const isAuthenticated = Boolean(authUser);
   const isOnboarded = authUser?.isOnboarded;
+  const {theme, setTheme} =useThemeStore();
 
 
   // const authUser = authData?.user;
@@ -36,16 +39,16 @@ const App = () => {
   
 
   return (
-    <div className="h-screen " data-theme="halloween">
+    <div className="h-screen " data-theme={theme}>
 
         <Routes>
-          <Route path="/" element={ isAuthenticated && isOnboarded? <HomePage />: <Navigate to= {!isAuthenticated ? "/login": "/onboarding"}/> }/>
+          <Route path="/" element={ isAuthenticated && isOnboarded? (<Layout showSidebar="true"><HomePage /></Layout>): <Navigate to= {!isAuthenticated ? "/login": "/onboarding"}/> }/>
           <Route path="/signup" element={!isAuthenticated ?<SignUpPage />: <Navigate to={ isOnboarded? "/": "/onboarding"}/>} />
           <Route path="/login" element={!isAuthenticated ?<LoginPage /> : <Navigate to={ isOnboarded? "/": "/onboarding"}/>} />
           <Route path="/onboarding" element={isAuthenticated ?( !isOnboarded? (<OnboardingPage />) :( <Navigate to="/"/>)) : (<Navigate to="/login"/>)} />
           <Route path="/call" element={isAuthenticated ?<CallPage /> : <Navigate to="/login"/>} />
           <Route path="/chat" element={isAuthenticated ?<ChatPage /> : <Navigate to="/login"/>} />
-          <Route path ="/notifications" element={isAuthenticated ?<NotificationsPage /> : <Navigate to="/login"/>}  />
+          <Route path ="/notifications" element={isAuthenticated ?(<Layout showSidebar="true"><NotificationsPage /></Layout>) : <Navigate to="/login"/>}  />
           <Route path="*" element={ <Navigate to="/" /> } />
         </Routes>
       <Toaster />
