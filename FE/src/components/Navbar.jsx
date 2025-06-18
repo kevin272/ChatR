@@ -2,7 +2,7 @@ import useAuthUser from '../hooks/useAuthUser'
 import { Link, useLocation } from 'react-router';
 // import { useMutation, useQueryClient } from '@tanstack/react-query';
 // import { logout } from '../lib/api';
-import { BellIcon, LogOutIcon, ShipWheelIcon } from 'lucide-react';
+import { BellIcon, LogOutIcon, MessageSquareText  } from 'lucide-react';
 import ThemeSelector from './ThemeSelector';
 import useLogout from '../hooks/useLogout';
 
@@ -24,18 +24,28 @@ const Navbar = () => {
   return (
     <nav className="bg-base-200 border-b border-base-300 sticky top-0 z-30 h-16 flex items-center">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-end w-full">
+        <div className="flex items-center justify-start w-full">
             {/*Logo only for chatpage*/}
-            {isChatPage && (
+            {isChatPage &&(
             <div className="pl-5">
               <Link to="/" className="flex items-center gap-2.5">
-                <ShipWheelIcon className="size-9 text-primary" />
+                <MessageSquareText  className="size-9 text-primary" />
                 <span className="text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary  tracking-wider">
                   ChatR
                 </span>
               </Link>
             </div>
           )}
+          {!isChatPage&&( 
+            <div className="pl-5 md:hidden">
+              <Link to="/" className="flex items-center gap-2.5">
+                <MessageSquareText  className="size-9 text-primary" />
+                <span className="text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary  tracking-wider">
+                  ChatR
+                </span>
+              </Link>
+            </div>)
+          }
 
           <div className='flex items-center gap-3 sm:gap-4 ml-auto'>
             <Link to={"/notifications"}>

@@ -2,7 +2,7 @@ import React from 'react'
 import useAuthUser from '../hooks/useAuthUser'
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
-import { LoaderIcon, MapPinIcon, ShipWheelIcon, ShuffleIcon ,CameraIcon} from "lucide-react";
+import { LoaderIcon, MapPinIcon, MessageSquareText , ShuffleIcon ,CameraIcon} from "lucide-react";
 import { LANGUAGES } from "../constants";
 import { completeOnboarding } from '../lib/api';
 
@@ -171,7 +171,7 @@ const handleRandomAvatar = () => {
             <button className="btn btn-primary w-full" disabled={isPending} type="submit">
               {!isPending ? (
                 <>
-                  <ShipWheelIcon className="size-5 mr-2" />
+                  <MessageSquareText  className="size-5 mr-2" />
                   Complete Onboarding
                 </>
               ) : (

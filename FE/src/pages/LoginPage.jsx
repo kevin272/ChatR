@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShipWheelIcon } from 'lucide-react';
+import { MessageSquareText  } from 'lucide-react';
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {login} from "../lib/api";
 import { Link } from 'react-router';
@@ -36,7 +36,7 @@ const LoginPage = () => {
     
     {/*LOGO*/}
     <div className="mb-4 flex items-center justify-start gap-2">
-      <ShipWheelIcon className="size-9 text-primary" />
+      <MessageSquareText  className="size-9 text-primary" />
       <span className="text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary tracking-wider">
         ChatR
       </span>

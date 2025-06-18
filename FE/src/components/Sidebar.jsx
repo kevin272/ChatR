@@ -1,7 +1,7 @@
 import React from 'react'
 import useAuthUser from '../hooks/useAuthUser'
 import { useLocation, Link } from 'react-router';
-import { ShipWheelIcon, HomeIcon, UsersIcon,BellIcon } from 'lucide-react';
+import { MessageSquareText , HomeIcon, UsersIcon,BellIcon } from 'lucide-react';
 
 const Sidebar = () => {
     const {authUser} = useAuthUser();
@@ -11,7 +11,7 @@ const Sidebar = () => {
     <aside className="w-64 bg-base-200 border-r border-base-200 hidden lg:flex flex-col h-screen sticky top-0">
         <div className="p-5 border-b border-base-300">
         <Link to="/" className="flex items-center gap-2.5">
-          <ShipWheelIcon className="size-9 text-primary" />
+          <MessageSquareText  className="size-9 text-primary" />
           <span className="text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary  tracking-wider">
             ChatR
           </span>
